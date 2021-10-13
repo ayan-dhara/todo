@@ -17,6 +17,6 @@ router.post("/signup", checkRegister, signup)
 
 // extra
 // ALL /verify To check if signed in
-router.all("/verify", checkSigned, verifyRouter);
+router.all("/verify", verifyRouter);
 
 export default router;

@@ -1,7 +1,7 @@
 import {NextFunction, Request, Response} from "express";
 
 const checkRegister = (req: Request, res: Response, next: NextFunction) => {
-  const {name, email, password, confirmPassword} = req.body;
+  const {name, email, password, confirm: confirmPassword} = req.body;
   if (!name)
     return res.status(406).send({
       success: false,

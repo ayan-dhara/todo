@@ -46,12 +46,16 @@ const signup = async (req: Request, res: Response) => {
     { expiresIn: 7 * 24 * 60 * 60 }
   );
 
-  res.cookie("jwt-token", token)
+  res.cookie("jwt-token", token, {
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    secure: true,
+    sameSite: true
+  })
     .send({
     userId: userId,
     email: email,
     name: name,
-    expiresIn: 7 * 24 * 60 * 60,
     success: true,
   });
 };

@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+body {
+  font-family: Ubuntu, "Noto Sans", serif;
+  line-height: 1.5rem;
+  min-height: 90vh;
+}
+
+button {
+  cursor: pointer;
+}

@@ -17,7 +17,7 @@ const login = async (req: Request, res: Response) => {
     })
   const userData: any = await User.findOne({where: {email}});
   if (!userData) {
-    return res.status(200).json({
+    return res.send({
       message: "Email is not registered",
       success: false,
     });
@@ -34,17 +34,21 @@ const login = async (req: Request, res: Response) => {
       {expiresIn: 7 * 24 * 60 * 60}
     );
 
-    return res.cookie("jwt-token", token)
-      .status(200).json({
+    return res.cookie("jwt-token", token, {
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: true,
+      sameSite: true,
+    })
+      .send({
         userId: userData.userId,
         name: userData.name,
         email: userData.email,
-        expiresIn: 7 * 24 * 60 * 60,
         message: "You are now logged in.",
         success: true
       });
   } else {
-    return res.status(403).json({
+    return res.send({
       message: "Incorrect password.",
       success: false,
     });
