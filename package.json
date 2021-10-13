@@ -1,0 +1,74 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Full-stack app with react and express",
+  "author": "ayan",
+  "license": "ISC",
+  "main": "index.ts",
+  "scripts": {
+    "dev:server": "TS_NODE_PROJECT=tsconfig.server.json nodemon index.ts",
+    "dev:client": "react-scripts start",
+    "dev": "npm rum dev:server & npm run dev:client",
+    "build": "react-scripts build",
+    "start": "TS_NODE_PROJECT=tsconfig.server.json ts-node index.ts"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/node": "^12.0.0",
+    "@types/react-router-dom": "^5.3.0",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "react-router-dom": "^5.3.0",
+    "sequelize": "^6.7.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "http-proxy-middleware": "^2.0.1",
+    "nodemon": "^2.0.13",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "homepage": ".",
+  "keywords": [
+    "react",
+    "typescript",
+    "express",
+    "frontend",
+    "backend",
+    "fullstack"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
