@@ -25,12 +25,12 @@ const checkRegister = (req: Request, res: Response, next: NextFunction) => {
   if (password && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password))
     return res.status(406).send({
       success: false,
-      message: "Invalid Password!"
+      message: "Password must match standard pattern!"
     });
   if (confirmPassword !== password)
     return res.status(406).send({
       success: false,
-      message: "Password doesn't match!"
+      message: "Password doesn't match with confirm !"
     });
   next();
 };

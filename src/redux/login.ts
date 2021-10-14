@@ -15,15 +15,6 @@ export const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    setPopup: (state: LoginReducer, action: { payload: boolean }) => {
-      return {...state, popup: action.payload}
-    },
-    togglePopup: (state: LoginReducer) => {
-      return {
-        ...state,
-        popup: !state.popup
-      }
-    },
     setLogin: (state: LoginReducer, action: { payload: LoginState; }) => {
       return {
         ...state,
@@ -33,6 +24,6 @@ export const loginSlice = createSlice({
   },
 })
 
-export const {setLogin, setPopup, togglePopup} = loginSlice.actions
+export const {setLogin} = loginSlice.actions
 
 export default loginSlice.reducer

@@ -52,7 +52,10 @@
     "express",
     "frontend",
     "backend",
-    "fullstack"
+    "fullstack",
+    "redux",
+    "redux-toolkit",
+    "scss"
   ],
   "eslintConfig": {
     "extends": [

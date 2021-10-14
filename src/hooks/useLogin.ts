@@ -1,10 +1,13 @@
 import {useEffect, useState} from 'react'
 
 export interface LoginState {
-  loggedIn: Boolean,
-  name: String,
-  email: String,
-  userId: String,
+  loggedIn: boolean,
+  name: string,
+  email: string,
+  userId: string,
+  message: string,
+  success: boolean,
+  initial: boolean
 }
 
 export const initialState: LoginState = {
@@ -12,6 +15,9 @@ export const initialState: LoginState = {
   name: "",
   email: "",
   userId: "",
+  message: "",
+  success: true,
+  initial: true
 }
 
 const useLogin: any = (initialLogin: LoginState = initialState) => {
@@ -21,20 +27,18 @@ const useLogin: any = (initialLogin: LoginState = initialState) => {
       fetch("/api/user/verify")
         .then(r => r.json())
         .then(json => {
-          if (json.success) {
-            setLogin({
-              ...json,
-              loggedIn: true
-            })
-          }
-          else
-            signOut()
+          setLogin({
+            ...json,
+            loggedIn: json.success,
+            initial: true
+          })
         })
         .catch((e) => {
           console.log(e)
           signOut()
         })
-    } catch (e) {}
+    } catch (e) {
+    }
   }, [])
 
   const signIn = (email: string, password: string) => {
@@ -49,14 +53,11 @@ const useLogin: any = (initialLogin: LoginState = initialState) => {
       })
     }).then(r => r.json())
       .then((json: any) => {
-        if (json.success) {
-          setLogin({
-            ...json,
-            loggedIn: true
-          })
-        }
-        else
-          signOut()
+        setLogin({
+          ...json,
+          loggedIn: json.success,
+          initial: false
+        })
       })
       .catch((e) => {
         console.log(e)
@@ -78,14 +79,11 @@ const useLogin: any = (initialLogin: LoginState = initialState) => {
       })
     }).then(r => r.json())
       .then(json => {
-        if (json.success) {
-          setLogin({
-            ...json,
-            loggedIn: true
-          })
-        }
-        else
-          signOut()
+        setLogin({
+          ...json,
+          loggedIn: json.success,
+          initial: false
+        })
       })
       .catch((e) => {
         console.log(e)

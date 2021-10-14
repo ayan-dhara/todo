@@ -16,7 +16,7 @@ const Todo = database.define("user", {
     allowNull: false,
   },
   status: {
-    // 0 added, 1 ongoing, 2 done
+    // 0 added, 1 ongoing, 2 done, 3, backlog
     type: DataTypes.INTEGER, // user generated
     allowNull: false,
   },
