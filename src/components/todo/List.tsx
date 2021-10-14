@@ -44,7 +44,7 @@ const List = (props: any) => {
             <div className="empty">List is Empty</div> :
             list.map((_todo: any, i: number) => {
               return <React.Fragment key={i}>
-                <Item todo={_todo} todoId={_todo.id}/>
+                <Item todo={_todo} todoId={_todo.todoId}/>
                 <div className="separator horizontal"/>
               </React.Fragment>
             })

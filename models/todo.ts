@@ -29,15 +29,15 @@ const Todo = database.define("todo", {
     allowNull: false
   },
   created: {
-    type: DataTypes.STRING, // server generated
+    type: DataTypes.BIGINT, // server generated
     allowNull: false
   },
   updated: {
-    type: DataTypes.BOOLEAN, // server generated
+    type: DataTypes.BIGINT, // server generated
     allowNull: false
   },
   due: {
-    type: DataTypes.STRING, // user generated
+    type: DataTypes.BIGINT, // user generated
     allowNull: false
   }
 });

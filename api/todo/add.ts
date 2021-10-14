@@ -18,7 +18,7 @@ const add = async (req: any, res: Response) => {
         title, due, description, status,
         userId: req.user.userId,
         created: Date.now(),
-        updated: true,
+        updated: Date.now(),
         deleted: false,
         todoId: crypto.randomBytes(10).toString("hex")
       }
