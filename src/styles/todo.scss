@@ -1,0 +1,110 @@
+.todo-main {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  h1{
+    text-align: center;
+    color: white;
+    font-size: 200%;
+    padding: 5px;
+    background-color: #00adff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  .wrapper {
+    display: flex;
+    width: 100%;
+    .separator.vertical {
+      width: 10px;
+      flex: 0 0 auto;
+    }
+    .list {
+      margin: 10px 0;
+      width: min(calc(100% - 20px), 350px);
+      flex: 0 0 auto;
+      box-shadow: inset 2px 2px 0 #00adff, inset -2px -2px 0 #00adff;
+      border-radius: 5px;
+      min-height: 100px;
+      .add {
+        border: 2px solid #00adff;
+        padding: 5px;
+        border-radius: 5px;
+        input, textarea{
+          color: #00adff;
+          width: 100%;
+          margin-bottom: 5px;
+          border: 2px solid  #00adff;
+          border-radius: 5px;
+          padding: 5px;
+          &::placeholder{
+            text-align: center;
+          }
+        }
+        textarea {
+          resize: vertical;
+          min-height: 50px;
+        }
+        .buttons {
+          display: flex;
+          justify-content: space-evenly;
+          width: 100%;
+          padding: 5px;
+          button {
+            background: #00adff;
+            color: white;
+            border: none;
+            width: 70px;
+            padding: 5px;
+            border-radius: 5px;
+          }
+        }
+      }
+      .title {
+        background-color: #00adff;
+        color: white;
+        text-align: center;
+        padding: 3px;
+        border-radius: 5px 5px 0 0;
+        position: relative;
+        .add {
+          position: absolute;
+          right: 10px;
+          top: 0;
+          font-size: 150%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+      .empty {
+        color: #0005;
+        width: 100%;
+        text-align: center;
+        height: 100%;
+        padding: 10px 0;
+      }
+      .items {
+        display: flex;
+        flex-direction: column;
+        padding: 0 7px;
+        .separator.horizontal {
+          height: 7px;
+          flex: 1 1 auto;
+        }
+        .item {
+          color: #00adff;
+          //margin: 5px;
+          .description {
+            border: 2px solid #00adff;
+            border-radius: 0 0 5px 5px;
+            padding: 0 7px;
+          }
+        }
+      }
+    }
+  }
+}

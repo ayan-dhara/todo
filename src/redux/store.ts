@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import login from './login'
+import todo from './todo'
 
 const store = configureStore({
   reducer: {
-    login
+    login,
+    todo
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false

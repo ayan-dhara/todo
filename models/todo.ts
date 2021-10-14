@@ -1,8 +1,12 @@
 import database from "../utills/database";
 import { DataTypes } from "sequelize";
 
-const Todo = database.define("user", {
-  id: {
+const Todo = database.define("todo", {
+  userId: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  todoId: {
     type: DataTypes.STRING, // server generated
     allowNull: false,
     primaryKey: true,
@@ -24,16 +28,16 @@ const Todo = database.define("user", {
     type: DataTypes.BOOLEAN, // user specified
     allowNull: false
   },
-  createdAt: {
-    type: DataTypes.BIGINT, // server generated
+  created: {
+    type: DataTypes.STRING, // server generated
     allowNull: false
   },
-  updatedAt: {
-    type: DataTypes.BIGINT, // server generated
+  updated: {
+    type: DataTypes.BOOLEAN, // server generated
     allowNull: false
   },
-  dueAt: {
-    type: DataTypes.BIGINT, // user generated
+  due: {
+    type: DataTypes.STRING, // user generated
     allowNull: false
   }
 });

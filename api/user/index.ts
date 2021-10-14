@@ -1,7 +1,6 @@
 // @ts-ignore
 import express from "express";
 import verifyRouter from "./verify";
-import checkSigned from "../../middlewares/checkSigned";
 import login from "./login";
 import signup from "./signup";
 import checkRegister from "../../middlewares/checkRegister";

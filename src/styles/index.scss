@@ -6,12 +6,16 @@
   font-size: inherit;
   font-family: inherit;
   line-height: inherit;
+  //border: 1px solid red;
 }
 
 body {
   font-family: Ubuntu, "Noto Sans", serif;
   line-height: 1.5rem;
   min-height: 90vh;
+  overflow: auto;
+  width: 100%;
+  padding-top: 40px;
 }
 
 button {
