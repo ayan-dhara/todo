@@ -31,6 +31,7 @@
       .add {
         border: 2px solid #00adff;
         border-radius: 5px;
+        padding: 5px;
         input, textarea{
           color: #00adff;
           width: 100%;
@@ -97,6 +98,14 @@
         .item {
           color: #00adff;
           //margin: 5px;
+          .due {
+            font-size: 80%;
+            border: 2px solid #00adff;
+            border-bottom: none;
+            border-top: none;
+            text-align: center;
+            line-height: 110%;
+          }
           .description {
             border: 2px solid #00adff;
             border-radius: 0 0 5px 5px;

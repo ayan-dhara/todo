@@ -8,12 +8,12 @@ const Item = (props: any) => {
 
   const dragStop = (e: any) => {
     dispatch(setDragOver(-1)) // will change async
-    if(dragoverIndex < 0)
+    if (dragoverIndex < 0)
       return
-    const selectedTodo: any = allTodo.todoList.filter((todo:any) => {
+    const selectedTodo: any = allTodo.todoList.filter((todo: any) => {
       return todo.todoId === todoId
     })
-    if(selectedTodo[0].status === dragoverIndex)
+    if (selectedTodo[0].status === dragoverIndex)
       return;
     updateTodo({
       id: todoId,
@@ -24,6 +24,12 @@ const Item = (props: any) => {
     <div className="item" draggable={true} onDragEnd={dragStop}>
       <div className="title">
         {todo.title}
+      </div>
+
+      <div className="due">
+        due at : {
+          new Date(Number(todo.due)).toLocaleString("en-IN")
+        }
       </div>
       <pre className="description">
         {todo.description}

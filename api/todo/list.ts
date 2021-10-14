@@ -13,7 +13,8 @@ const list = async (req: any, res: Response) => {
       deleted: {
         [Op.eq]: false
       }
-    }
+    },
+    order: ["due"]
   })
   const todoList = todos.map((todo: any) => {
     return todo.dataValues

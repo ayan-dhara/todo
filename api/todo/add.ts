@@ -22,11 +22,9 @@ const add = async (req: any, res: Response) => {
         deleted: false,
         todoId: crypto.randomBytes(10).toString("hex")
       }
-      console.log(newTodo)
       await Todo.create(newTodo)
       return list(req, res)
     } else {
-      console.log(req.body)
       return res.send({
         success: false,
         message: "field missing"

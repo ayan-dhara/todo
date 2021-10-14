@@ -32,14 +32,12 @@ const update = async (req: any, res: Response) => {
       ...updateData,
       updated: Date.now()
     }
-    console.log(updateData)
     const updatedRows = await Todo.update({...updateData}, {
       where: {
         userId: req.user.userId,
         todoId: req.params.id
       }
     })
-    console.log(updatedRows)
     return list(req, res)
   } catch (e) {
     console.log(e)
