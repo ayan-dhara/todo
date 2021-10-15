@@ -2,6 +2,13 @@
   display: flex;
   margin: auto;
   flex-direction: column;
+  .error {
+    color: red;
+    text-align: center;
+    font-size: 80%;
+    width: 100%;
+    margin: 0;
+  }
   h1{
     text-align: center;
     color: white;
@@ -69,7 +76,7 @@
         padding: 3px;
         border-radius: 5px 5px 0 0;
         position: relative;
-        .add {
+        .add-button {
           position: absolute;
           right: 10px;
           top: 0;

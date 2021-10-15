@@ -1,5 +1,5 @@
 // PUT /todos/:id
-import {Request, Response} from "express";
+import {Response} from "express";
 import Todo from "../../models/todo";
 import list from "./list";
 

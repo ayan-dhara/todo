@@ -1,6 +1,5 @@
 // GET /todos
-import {Request, Response} from "express";
-import todo from "../../src/redux/todo";
+import {Response} from "express";
 import Todo from "../../models/todo";
 import {Op} from "sequelize";
 
@@ -14,7 +13,7 @@ const list = async (req: any, res: Response) => {
         [Op.eq]: false
       }
     },
-    order: ["due"]
+    order: ["due", "created"]
   })
   const todoList = todos.map((todo: any) => {
     return todo.dataValues

@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 
 const New = (props: any) => {
   const {addTodo} = useAppSelector(state => state.todo)
+  const [error, setError] = useState("")
   const [template, setTemplate] = useState({
     title:"",
     description: "",
@@ -12,6 +13,14 @@ const New = (props: any) => {
   const [description, setDescription] = useState("")
   const [due, setDue] = useState("")
   const add = () => {
+    if(error)
+      return
+    if(!title)
+      return setError("Provide a Title")
+    if(!description)
+      return setError("Need a description")
+    if(!due)
+      return setError("choose a due date")
     addTodo({
       title,
       description,
@@ -22,6 +31,13 @@ const New = (props: any) => {
     setDescription(template.description)
     setDue(template.due)
   }
+
+  useEffect(()=>{
+    if(!error)
+      return
+    setError("")
+  }, [title, description, due])
+
   useEffect(()=>{
     let savedTemplateString: any = localStorage.getItem("template:"+props.index)
     if(savedTemplateString){
@@ -39,6 +55,7 @@ const New = (props: any) => {
       setTemplate(savedTemplate)
     }
   }, [])
+
   const saveAsTemplate = () => {
     const templateToSave = {
       title,
@@ -55,6 +72,7 @@ const New = (props: any) => {
         <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} value={title}/>
         <textarea placeholder="Description" onChange={(e) => setDescription(e.target.value)} value={description}/>
         <input type="datetime-local" onChange={(e) => setDue(e.target.value)} value={due}/>
+        <div className="error">{error}</div>
         <div className="buttons">
           <button onClick={add}>Add</button>
           <button onClick={saveAsTemplate}>Set as template</button>
