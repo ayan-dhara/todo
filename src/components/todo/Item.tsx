@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 
 const Item = (props: any) => {
   const [editing, setEditing] = useState(false)
-  const {todo: allTodo, dragoverIndex, updateTodo} = useAppSelector(state => state.todo)
+  const {todo: allTodo, dragoverIndex, updateTodo, deleteTodo} = useAppSelector(state => state.todo)
   const {todo, todoId} = props
   const dispatch = useAppDispatch()
   const [error, setError] = useState("")
@@ -46,20 +46,20 @@ const Item = (props: any) => {
     setEditing(false)
   }
 
-  useEffect(()=>{
-    if(!error)
+  useEffect(() => {
+    if (!error)
       return
     setError("")
   }, [title, description, due])
 
   useEffect(() => {
-    if(!editing)
+    if (!editing)
       return
     setTitle(todo.title)
     setDescription(todo.description)
-    if (todo.due){
+    if (todo.due) {
       const dueStamp = Number(todo.due)
-      if(!dueStamp)
+      if (!dueStamp)
         return
       let dateTime = new Date(dueStamp).toLocaleString(undefined, {
         year: 'numeric',
@@ -76,6 +76,12 @@ const Item = (props: any) => {
       setDue(inputDateTime)
     }
   }, [todo, editing])
+
+  const deleteIt = () => {
+    deleteTodo({
+      id: todoId
+    })
+  }
 
   if (editing)
     return (
@@ -97,8 +103,8 @@ const Item = (props: any) => {
     <div className="item" draggable={true} onDragEnd={dragStop}>
       <div className="title">
         {todo.title}
-        <div className="delete-button" onClick={() => setEditing(true)}>--</div>
-        <div className="edit-button" onClick={() => setEditing(true)}> &lt; </div>
+        <div className="delete-button" onClick={() => setEditing(true)}><i className="far fa-pen"/></div>
+        <div className="edit-button" onClick={deleteIt}><i className="fas fa-trash"/></div>
       </div>
       <div className="due">
         due at : {

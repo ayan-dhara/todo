@@ -93,13 +93,16 @@
           position: absolute;
           right: 10px;
           top: 0;
-          font-size: 150%;
+          font-size: 100%;
+          line-height: 160%;
+          padding: 7px;
           height: 100%;
           display: flex;
           justify-content: center;
           text-align: center;
         }
-        .edit-button{
+
+        .edit-button {
           left: 10px;
           right: auto;
         }

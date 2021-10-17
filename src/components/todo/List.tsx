@@ -32,7 +32,7 @@ const List = (props: any) => {
     <div className="list" onDragEnter={enterDrag}>
       <div className="title">
         {status}
-        <div className="add-button" onClick={() => setAddNew(true)}>+</div>
+        <div className="add-button" onClick={() => setAddNew(true)}><i className="far fa-plus-circle"/></div>
       </div>
       <div className="items">
         {
