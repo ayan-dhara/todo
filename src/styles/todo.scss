@@ -2,6 +2,7 @@
   display: flex;
   margin: auto;
   flex-direction: column;
+
   .error {
     color: red;
     text-align: center;
@@ -9,7 +10,8 @@
     width: 100%;
     margin: 0;
   }
-  h1{
+
+  h1 {
     text-align: center;
     color: white;
     font-size: 200%;
@@ -21,13 +23,16 @@
     right: 0;
     z-index: 100;
   }
+
   .wrapper {
     display: flex;
     width: 100%;
+
     .separator.vertical {
       width: 10px;
       flex: 0 0 auto;
     }
+
     .list {
       margin: 10px 0;
       width: min(calc(100% - 20px), 350px);
@@ -35,30 +40,36 @@
       box-shadow: inset 2px 2px 0 #00adff, inset -2px -2px 0 #00adff;
       border-radius: 5px;
       min-height: 100px;
+
       .add {
         border: 2px solid #00adff;
         border-radius: 5px;
         padding: 5px;
-        input, textarea{
+
+        input, textarea {
           color: #00adff;
           width: 100%;
           margin-bottom: 5px;
-          border: 2px solid  #00adff;
+          border: 2px solid #00adff;
           border-radius: 5px;
           padding: 5px;
-          &::placeholder{
+
+          &::placeholder {
             text-align: center;
           }
         }
+
         textarea {
           resize: vertical;
           min-height: 50px;
         }
+
         .buttons {
           display: flex;
           justify-content: space-evenly;
           width: 100%;
           padding: 5px;
+
           button {
             background: #00adff;
             color: white;
@@ -69,6 +80,7 @@
           }
         }
       }
+
       .title {
         background-color: #00adff;
         color: white;
@@ -76,7 +88,8 @@
         padding: 3px;
         border-radius: 5px 5px 0 0;
         position: relative;
-        .add-button {
+
+        .add-button, .edit-button, .delete-button {
           position: absolute;
           right: 10px;
           top: 0;
@@ -86,7 +99,12 @@
           justify-content: center;
           text-align: center;
         }
+        .edit-button{
+          left: 10px;
+          right: auto;
+        }
       }
+
       .empty {
         color: #0005;
         width: 100%;
@@ -94,14 +112,17 @@
         height: 100%;
         padding: 10px 0;
       }
+
       .items {
         display: flex;
         flex-direction: column;
         padding: 0 7px;
+
         .separator.horizontal {
           height: 7px;
           flex: 1 1 auto;
         }
+
         .item {
           color: #00adff;
           //margin: 5px;
@@ -113,6 +134,7 @@
             text-align: center;
             line-height: 110%;
           }
+
           .description {
             border: 2px solid #00adff;
             border-radius: 0 0 5px 5px;
